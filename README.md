@@ -32,3 +32,10 @@ Random Forest outperformed logistic regression and identified the most important
 
 ## 📁 Repository Structure
 
+health-ml-project/
+├── data/
+│ └── sample_brfss.csv # Sample dataset (1000 rows)
+├── Health_ML_Results.ipynb # Full notebook with EDA + modeling
+├── requirements.txt # Dependencies
+├── README.md # Project overview
+
