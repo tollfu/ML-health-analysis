@@ -10,6 +10,7 @@ This project explores how machine learning models can predict self-reported heal
 - **Models Used**:
   - Logistic Regression
   - Random Forest Classifier
+  - XGBoost
 
 The objective is to predict a respondent’s general health based on other numeric health and behavior-related variables.
 
@@ -26,16 +27,12 @@ The objective is to predict a respondent’s general health based on other numer
 
 - **Logistic Regression Accuracy**: ~X.XX (fill in actual result)
 - **Random Forest Accuracy**: ~X.XX (fill in actual result)
+- **XGBoost Accuracy**: ~X.XX (fill in actual result)
 - **Top Predictive Features**: (e.g., BMI, number of mentally unhealthy days, etc.)
 
-Random Forest outperformed logistic regression and identified the most important features contributing to health status classification.
-
+Random Forest outperformed Logistic Regression and identified the most important features contributing to health status classification.
+XGBoost outperformed Logistic Regression and identified the most important features contributing to health status classification.
 ## 📁 Repository Structure
 
-health-ml-project/
-├── data/
-│ └── sample_brfss.csv # Sample dataset (1000 rows)
-├── Health_ML_Results.ipynb # Full notebook with EDA + modeling
-├── requirements.txt # Dependencies
-├── README.md # Project overview
+
 
