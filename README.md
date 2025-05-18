@@ -47,4 +47,15 @@ XGBoost outperformed Logistic Regression and identified the most important featu
 | DIFFWALK  |        -0.466 |       0.03  |     0     | Negative    |
 
 
-
+| Rank | Feature         | Importance |
+|------|------------------|------------|
+| 1    | PHYSHLTH         | 0.0937     |
+| 2    | DIFFWALK         | 0.0453     |
+| 3    | QLACTLM2         | 0.0361     |
+| 4    | DIFFALON         | 0.0291     |
+| 5    | ARTHSOCL         | 0.0216     |
+| 6    | _BMI5            | 0.0193     |
+| 7    | MENTHLTH         | 0.0188     |
+| 8    | USEEQUIP         | 0.0187     |
+| 9    | JOINPAIN         | 0.0185     |
+| 10   | _VEGESUM         | 0.0168     |
