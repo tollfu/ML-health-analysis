@@ -59,3 +59,16 @@ XGBoost outperformed Logistic Regression and identified the most important featu
 | 8    | USEEQUIP         | 0.0187     |
 | 9    | JOINPAIN         | 0.0185     |
 | 10   | _VEGESUM         | 0.0168     |
+
+| Rank | Feature         | Importance |
+|------|------------------|------------|
+| 1    | PHYSHLTH         | 0.1271     |
+| 2    | QLACTLM2         | 0.1145     |
+| 3    | INTERNET         | 0.0740     |
+| 4    | DIFFWALK         | 0.0557     |
+| 5    | ARTHSOCL         | 0.0456     |
+| 6    | _INCOMG          | 0.0421     |
+| 7    | EXERANY2         | 0.0413     |
+| 8    | BPHIGH4          | 0.0338     |
+| 9    | EDUCA            | 0.0329     |
+| 10   | DECIDE           | 0.0284     |
