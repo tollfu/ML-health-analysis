@@ -72,3 +72,10 @@ XGBoost outperformed Logistic Regression and identified the most important featu
 | 8    | BPHIGH4          | 0.0338     |
 | 9    | EDUCA            | 0.0329     |
 | 10   | DECIDE           | 0.0284     |
+
+
+| Model           | Mean AUC | Std. AUC |
+|-----------------|----------|----------|
+| XGBoost         | 0.901    | 0.003    |
+| Random Forest   | 0.893    | 0.003    |
+| Decision Tree   | 0.846    | 0.003    |
