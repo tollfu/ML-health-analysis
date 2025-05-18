@@ -5,18 +5,23 @@ This project explores how machine learning models can predict self-reported heal
 
 ## 📊 Project Overview
 
-- **Dataset**: BRFSS 2015 survey data (sampled to 100,000 rows for efficiency)
-- **Target Variable**: `GENHLTH` – a self-reported rating of general health (1 = Excellent to 5 = Poor)
+- **Dataset**: BRFSS 2015 survey data (sampled to 100,000 rows for efficiency). The dataset is not uploaded due to size limit, but can be found at:https://www.cdc.gov/brfss/annual_data/annual_data.htm
+- **Target Variable**: `_RFHLTH` – a self-reported rating of general health (1 = Good/Better Health and 2 = Fair/Poor Health)
 - **Models Used**:
   - Logistic Regression
+  - Decision Tree
   - Random Forest Classifier
   - XGBoost
 
-The objective is to predict a respondent’s general health based on other numeric health and behavior-related variables.
+The objective is to predict a respondent’s self reported general health based on other numeric health and behavior-related variables. Then compare performance of model precision to find the best model.
 
 ## 🔍 Key Steps
 
-- Filtered numeric variables and dropped high-missing-value columns
+- **Data Cleaning and Manipulation**:
+  - removal of irrelevant and less important features
+  - feature recoding (e.g. conversion of 1/2 -> 0/1, filling in NaN values by averaging)
+  - identification of universal/conditional features and separate engineering
+  
 - Removed constant and missing-value rows
 - Performed train/test split
 - Trained models using `scikit-learn`
