@@ -33,6 +33,18 @@ The objective is to predict a respondent’s general health based on other numer
 Random Forest outperformed Logistic Regression and identified the most important features contributing to health status classification.
 XGBoost outperformed Logistic Regression and identified the most important features contributing to health status classification.
 ## 📁 Repository Structure
+| Feature   |   Coefficient |   Std Error |   P-value | Direction   |
+|:----------|--------------:|------------:|----------:|:------------|
+| _RFHYPE5  |         0.388 |       0.173 |     0.025 | Positive    |
+| EXERANY2  |         0.366 |       0.165 |     0.026 | Positive    |
+| DIABETE3  |         0.291 |       0.013 |     0     | Positive    |
+| EDUCA     |         0.285 |       0.023 |     0     | Positive    |
+| INTERNET  |         0.261 |       0.028 |     0     | Positive    |
+| QLACTLM2  |        -0.768 |       0.027 |     0     | Negative    |
+| CHCCOPD1  |        -0.548 |       0.034 |     0     | Negative    |
+| CHCOCNCR  |        -0.542 |       0.031 |     0     | Negative    |
+| CHCKIDNY  |        -0.508 |       0.047 |     0     | Negative    |
+| DIFFWALK  |        -0.466 |       0.03  |     0     | Negative    |
 
 
 
