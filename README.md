@@ -146,7 +146,7 @@ We then proceed to generate the list of the 10 most important features.
 | 9    | EDUCA            | 0.0329     |
 | 10   | DECIDE           | 0.0284     |
 
-## 🚀Final Comparison
+## 🚀Final Summary
 
 *Table 4: Top Models Performance Comparison*
 | Model           | Mean AUC | Std. AUC |
@@ -155,4 +155,10 @@ We then proceed to generate the list of the 10 most important features.
 | Random Forest   | 0.893    | 0.003    |
 | Decision Tree   | 0.846    | 0.003    |
 
+Table 4 shows that XGBoost > Random Forest > Decision Tree in terms of performance.
 
+Comparing most impactful features between the three models using Table 1-3, we can see that:
+
+`QLACTLM2` and `DIFFWALK` appeared in all three tables.
+
+`INTERNET`, `EXERANY2`, `EDUCA`, `ARTHSOCL`, and `PHYSHLTH` appears in 2 out of 3 tables.
