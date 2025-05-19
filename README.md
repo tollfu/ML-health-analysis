@@ -93,8 +93,9 @@ As a result:
 ***Figure 2: Confusion Matrix for Decison Tree Model***
 
 
+### Interpretation of Decision Tree Results
 
-The confusion matrix shows that around 87% of results are correctly predicted using this model. It is important to note that we have an imbalanced dataset where the majority of individuals report good/better health. In this case, accuracy is not the best measure for model performance, we have to introduce the ROC-AUC curve as a more robust indicator.
+The confusion matrix shows that around `87%` of results are correctly predicted using this model. It is important to note that we have an imbalanced dataset where the majority of individuals report good/better health. In this case, accuracy is not the best measure for model performance, we have to introduce the ROC-AUC curve as a more robust indicator.
 
 ## Random Forest
 
@@ -102,17 +103,26 @@ The confusion matrix shows that around 87% of results are correctly predicted us
 
 ***Figure 3: Confusion Matrix for the Initial Random Forest Model***
 
+### Random Forest vs. Decision Tree
+
 We compute the confusion matrix of a Random Forest model (n_estimators = 100, max_depth = None, max_features = 'sqrt'), we can see that it slightly outperforms the Decision Tree model.
 This result is expected since Random Forest uses multiple trees to reduce overfitting and stablize prediction.
+
+### Model Tuning
 
 ![AUC Curve - Decision Tree](images/rf2.png)
 
 ***Figure 4: Performance Comparison of Different Random Forest Models***
 
-We then test different combinations of model parameters to find the best performing model. From the figure, we can see that
+We then test different combinations of model parameters to find the best performing model. From the figure, we can see that fixing other variables, model performance tends to increase with number of estimators. We also find that:
 
-(n_estimators = 300, max_depth = 20, max_features = 'sqrt')
-gives the highest ROC AUC at 0.893.
+**`(n_estimators = 300, max_depth = 20, max_features = 'sqrt')`**
+
+gives the highest ROC AUC at **`0.893`**.
+
+
+
+### Feature Importance
 
 We then proceed to generate the list of the 10 most important features.
 
@@ -133,16 +143,21 @@ We then proceed to generate the list of the 10 most important features.
 
 ## XGBoost
 
+### Model Tuning
+
 ![AUC Curve - Random Forest](images/xg1.png)
 
 ***Figure 5: Performance Comparison of Different XGBoost Models***
 
 We iterate the same process for XGBoost models and find that
 
-(n_estimators = 300, max_depth = 5, learning_rate = 0.1) gives the highest ROC AUC at 0.900 
+**`(n_estimators = 300, max_depth = 5, learning_rate = 0.1)`** gives the highest ROC AUC at 0.900.
+
+Another interesting observation is that, while most of the time model performance increases with number of estimators (fixing the rest of course), in the special case where learning rate = `0.1`, ROC AUC actually moves in an opposite direction. This is because a higher learning rate gives each iteration a larger update, which also introduces potential overfitting.
+### Feature Importance
 
 We then proceed to generate the list of the 10 most important features.
-
+ 
 | Rank | Feature         | Importance |
 |------|------------------|------------|
 | 1    | PHYSHLTH         | 0.1271     |
@@ -172,13 +187,21 @@ We then proceed to generate the list of the 10 most important features.
 
 Table 4 shows that XGBoost > Random Forest > Decision Tree in terms of performance.
 
-### Insights
+This is a rather intuitive result since both XGBoost and Random Forest uses multiple decision trees for modelling.
+
+Taking one stepn further, XGBoost is expected to outperform Random Forest because of its direct on error correction (will be further discussed in data insight)
+
+### Data Insights
 
 Comparing most impactful features between the three models using Table 1-3, we can see that:
 
-`QLACTLM2` and `DIFFWALK` appeared in all three tables.
+- **`QLACTLM2`** and **`DIFFWALK`**:
+  appears in all three tables
+  
 
-`INTERNET`, `EXERANY2`, `EDUCA`, `ARTHSOCL`, and `PHYSHLTH` appears in 2 out of 3 tables.
+- **`INTERNET`**, **`EXERANY2`**, **`EDUCA`**, **`ARTHSOCL`**, and **`PHYSHLTH`**:
+  appears in 2 out of 3 tables
+  
 
 The contrast in feature importance in the three models is mainly due to difference in approach.
 
