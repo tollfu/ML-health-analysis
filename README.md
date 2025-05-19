@@ -38,7 +38,7 @@ The objective is to predict a respondent’s self reported general health based 
 pseudo R-squared: 0.364
 
 
-*Table 1: Top 5 Positive/Negative Variables for Logistic Regressions*
+
   
 | Feature   |   Coefficient |   Std Error |   P-value | Direction   |
 |:----------|--------------:|------------:|----------:|:------------|
@@ -52,6 +52,8 @@ pseudo R-squared: 0.364
 | CHCOCNCR  |        -0.542 |       0.031 |     0     | Negative    |
 | CHCKIDNY  |        -0.508 |       0.047 |     0     | Negative    |
 | DIFFWALK  |        -0.466 |       0.03  |     0     | Negative    |
+
+***Table 1: Top 5 Positive/Negative Variables for Logistic Regressions***
 
 ### Interpretation of Logistic Regression Results
 
@@ -82,32 +84,30 @@ As a result:
 
 ## Decision Tree
 
-
-*Figure 1: Visualisation of Decision Tree Branches*
-
 ![AUC Curve - Decision Tree](images/dt1.png)
 
-*Figure 2: Confusion Matrix for Decison Tree Model*
+***Figure 1: Visualisation of Decision Tree Branches***
 
 ![AUC Curve - Decision Tree](images/dt2.png)
+
+***Figure 2: Confusion Matrix for Decison Tree Model***
 
 
 
 The confusion matrix shows that around 87% of results are correctly predicted using this model. It is important to note that we have an imbalanced dataset where the majority of individuals report good/better health. In this case, accuracy is not the best measure for model performance, we have to introduce the ROC-AUC curve as a more robust indicator.
 
-### Random Forest
-
-
-*Figure 3: Confusion Matrix for the Initial Random Forest Model*
+## Random Forest
 
 ![AUC Curve - Random Forest](images/rf1.png)
+
+***Figure 3: Confusion Matrix for the Initial Random Forest Model***
 
 We compute the confusion matrix of a Random Forest model (n_estimators = 100, max_depth = None, max_features = 'sqrt'), we can see that it slightly outperforms the Decision Tree model.
 This result is expected since Random Forest uses multiple trees to reduce overfitting and stablize prediction.
 
-*Figure 4: Performance Comparison of Different Random Forest Models*
-
 ![AUC Curve - Decision Tree](images/rf2.png)
+
+***Figure 4: Performance Comparison of Different Random Forest Models***
 
 We then test different combinations of model parameters to find the best performing model. From the figure, we can see that
 
@@ -116,8 +116,6 @@ gives the highest ROC AUC at 0.893.
 
 We then proceed to generate the list of the 10 most important features.
 
-
-*Table 2: 10 Most Important Features in Best Random Forest Model*
 | Rank | Feature         | Importance |
 |------|------------------|------------|
 | 1    | PHYSHLTH         | 0.0937     |
@@ -131,13 +129,13 @@ We then proceed to generate the list of the 10 most important features.
 | 9    | JOINPAIN         | 0.0185     |
 | 10   | _VEGESUM         | 0.0168     |
 
+***Table 2: 10 Most Important Features in Best Random Forest Model***
 
-### XGBoost
-
-
-*Figure 5: Performance Comparison of Different XGBoost Models*
+## XGBoost
 
 ![AUC Curve - Random Forest](images/xg1.png)
+
+***Figure 5: Performance Comparison of Different XGBoost Models***
 
 We iterate the same process for XGBoost models and find that
 
@@ -145,7 +143,6 @@ We iterate the same process for XGBoost models and find that
 
 We then proceed to generate the list of the 10 most important features.
 
-*Table 3: 10 Most Important Features in Best XGBoost Model*
 | Rank | Feature         | Importance |
 |------|------------------|------------|
 | 1    | PHYSHLTH         | 0.1271     |
@@ -159,16 +156,23 @@ We then proceed to generate the list of the 10 most important features.
 | 9    | EDUCA            | 0.0329     |
 | 10   | DECIDE           | 0.0284     |
 
+***Table 3: 10 Most Important Features in Best XGBoost Model***
+
 ## 🚀Final Summary
 
-*Table 4: Top Models Performance Comparison*
+### Model Comparison
+
 | Model           | Mean AUC | Std. AUC |
 |-----------------|----------|----------|
 | XGBoost         | 0.901    | 0.003    |
 | Random Forest   | 0.893    | 0.003    |
 | Decision Tree   | 0.846    | 0.003    |
 
+***Table 4: Top Models Performance Comparison***
+
 Table 4 shows that XGBoost > Random Forest > Decision Tree in terms of performance.
+
+### Insights
 
 Comparing most impactful features between the three models using Table 1-3, we can see that:
 
