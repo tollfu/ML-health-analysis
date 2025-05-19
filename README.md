@@ -89,9 +89,19 @@ The confusion matrix shows that around 87% of results are correctly predicted us
 
 ![AUC Curve - Random Forest](images/rf1.png)
 
+We compute the confusion matrix of a Random Forest model (n_estimators = 100, max_depth = None, max_features = 'sqrt'), we can see that it slightly outperforms the Decision Tree model.
+This result is expected since Random Forest uses multiple trees to reduce overfitting and stablize prediction.
+
 *Figure 4: Performance Comparison of Different Random Forest Models*
 
 ![AUC Curve - Decision Tree](images/rf2.png)
+
+We then test different combinations of model parameters to find the best performing model. From the figure, we can see that
+
+(n_estimators = 300, max_depth = 20, max_features = 'sqrt')
+gives the highest ROC AUC at 0.893.
+
+We then proceed to generate the list of the 10 most important features.
 
 
 *Table 2: 10 Most Important Features in Best Random Forest Model*
@@ -108,6 +118,7 @@ The confusion matrix shows that around 87% of results are correctly predicted us
 | 9    | JOINPAIN         | 0.0185     |
 | 10   | _VEGESUM         | 0.0168     |
 
+
 ### XGBoost
 
 
@@ -115,10 +126,11 @@ The confusion matrix shows that around 87% of results are correctly predicted us
 
 ![AUC Curve - Random Forest](images/xg1.png)
 
+We iterate the same process for XGBoost models and find that
 
+(n_estimators = 300, max_depth = 5, learning_rate = 0.1) gives the highest ROC AUC at 0.900 
 
-
-
+We then proceed to generate the list of the 10 most important features.
 
 *Table 3: 10 Most Important Features in Best XGBoost Model*
 | Rank | Feature         | Importance |
@@ -142,3 +154,5 @@ The confusion matrix shows that around 87% of results are correctly predicted us
 | XGBoost         | 0.901    | 0.003    |
 | Random Forest   | 0.893    | 0.003    |
 | Decision Tree   | 0.846    | 0.003    |
+
+
