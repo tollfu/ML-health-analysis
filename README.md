@@ -6,7 +6,7 @@ This project explores how machine learning models can predict self-reported heal
 ## 📊 Project Overview
 
 - **Dataset**: BRFSS 2015 survey data (sampled to 100,000 rows for efficiency). The dataset is not uploaded due to size limit, but can be found at:https://www.cdc.gov/brfss/annual_data/annual_data.htm
-- **Target Variable**: `_RFHLTH` – a self-reported rating of general health (1 = Good/Better Health and 2 = Fair/Poor Health)
+- **Target Variable**: **`_RFHLTH`** – a self-reported rating of general health (1 = Good/Better Health and 2 = Fair/Poor Health)
 - **Models Used**:
   - Logistic Regression
   - Decision Tree
@@ -34,7 +34,7 @@ The objective is to predict a respondent’s self reported general health based 
 
 ## 📈 Results and Discussions
 
-### Logistic Regression
+## Logistic Regression
 pseudo R-squared: 0.364
 
 
@@ -53,23 +53,34 @@ pseudo R-squared: 0.364
 | CHCKIDNY  |        -0.508 |       0.047 |     0     | Negative    |
 | DIFFWALK  |        -0.466 |       0.03  |     0     | Negative    |
 
-The results make intuitive sense, most of these variables ask for participants' physical conditons and disease history
+### Interpretation of Logistic Regression Results
 
-For example:
+The results make intuitive sense — most of the important variables relate to participants' physical condition or disease history. For example:
 
-`QLACTLM2` asks if you are limited in any way due to physical and mental inabilities, we find that answering 'yes' on this question decreases the odds of participant thinking they have good health by 1 - e^(-0.768) = 53.6%.
+- **`QLACTLM2`**:  
+  Asks whether the participant is limited in any way due to physical or mental conditions.  
+  → Answering `'yes'` decreases the odds of reporting good health by:  
+  **`1 - e^(-0.768) ≈ 53.6%`**.
 
-`EXERANY2` asks if participants engaged in physical activities such as jogging in the past month. Those who answer 'yes' has a e^0.366 - 1 = 44% of odds increase of reporting good health.
+- **`EXERANY2`**:  
+  Asks whether the participant engaged in any physical activity (e.g., jogging) in the past month.  
+  → Answering `'yes'` increases the odds of reporting good health by:  
+  `e^(0.366) - 1 ≈ 44%`.
 
-Some interesting observations include:
+### Additional Observations
 
-`EDUCA` which is positively related to subjects education level and `INTERNET` which tracks internet usage in the past month. They all seem to positively affect 
+- **`EDUCA`** (education level) and **`INTERNET`** (internet usage in the past month) are also positively associated with self-reported good health.
+  - One might speculate that higher education and regular internet use improve access to health-related information, encouraging healthier behaviors.
+  - However, this is only a hypothesis, the logistic regression model alone does not provide causal inference.
 
-One can say that higher education and usage of internet allows for access to more health-related information, which may facilitate the adoption of healthier habits. However, there is no way to verify such claim.
+### Limitation of Logistic Regression
 
-A significant downside of Logistic Regression is that it cannot include columns with NaN values. In our context, it means that every conditional variable must be omitted to run this regression.
+A major drawback of logistic regression in this context is its inability to handle missing values (`NaN`).  
+As a result:
+- Any conditional variable (i.e., only asked of a subset of respondents) must be omitted to run the model.
+- This could potentially exclude informative predictors.
 
-### Decision Tree
+## Decision Tree
 
 
 *Figure 1: Visualisation of Decision Tree Branches*
@@ -79,6 +90,8 @@ A significant downside of Logistic Regression is that it cannot include columns 
 *Figure 2: Confusion Matrix for Decison Tree Model*
 
 ![AUC Curve - Decision Tree](images/dt2.png)
+
+
 
 The confusion matrix shows that around 87% of results are correctly predicted using this model. It is important to note that we have an imbalanced dataset where the majority of individuals report good/better health. In this case, accuracy is not the best measure for model performance, we have to introduce the ROC-AUC curve as a more robust indicator.
 
