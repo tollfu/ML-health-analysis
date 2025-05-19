@@ -80,7 +80,7 @@ A significant downside of Logistic Regression is that it cannot include columns 
 
 ![AUC Curve - Decision Tree](images/dt2.png)
 
-The confusion matrix shows that around 87% of results are correctly predicted using this model. It is important to note that we have an imbalanced dataset where the majority of individuals report good/better health. In this case, accuracy is not the best measure for model performance. we have to introduce the ROC-AUC curve as a more robust indicator.
+The confusion matrix shows that around 87% of results are correctly predicted using this model. It is important to note that we have an imbalanced dataset where the majority of individuals report good/better health. In this case, accuracy is not the best measure for model performance, we have to introduce the ROC-AUC curve as a more robust indicator.
 
 ### Random Forest
 
