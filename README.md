@@ -22,11 +22,15 @@ The objective is to predict a respondent’s self reported general health based 
   - feature recoding (e.g. conversion of 1/2 -> 0/1, filling in NaN values by averaging)
   - identification of universal/conditional features and separate engineering
   
-- Removed constant and missing-value rows
-- Performed train/test split
-- Trained models using `scikit-learn`
-- Evaluated performance with accuracy and confusion matrices
-- Visualized top predictors using feature importance (Random Forest)
+- **Testing and Fine Tuning of Multiple Models**:
+  - Logistic Regression
+  - Decision Tree
+  - Random Forest (varying number of estimators, maximum depth and maximum features)
+  - XGBoost (varying number of estimators, maximum depth and learning rate)
+
+- **Performance Comparison and Insight Extraction**:
+  - graph the AUC-ROC curve
+  - list and cross-match feature importance
 
 ## 📈 Results Summary
 
