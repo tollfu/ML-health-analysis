@@ -67,6 +67,8 @@ Some interesting observations include:
 
 One can say that higher education and usage of internet allows for access to more health-related information, which may facilitate the adoption of healthier habits. However, there is no way to verify such claim.
 
+A significant downside of Logistic Regression is that it cannot include columns with NaN values. In our context, it means that every conditional variable must be omitted to run this regression.
+
 ### Decision Tree
 
 
@@ -78,6 +80,7 @@ One can say that higher education and usage of internet allows for access to mor
 
 ![AUC Curve - Decision Tree](images/dt2.png)
 
+The confusion matrix shows that around 87% of results are correctly predicted using this model. It is important to note that we have an imbalanced dataset where the majority of individuals report good/better health. In this case, accuracy is not the best measure for model performance. we have to introduce the ROC-AUC curve as a more robust indicator.
 
 ### Random Forest
 
