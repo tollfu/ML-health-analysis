@@ -38,7 +38,7 @@ The objective is to predict a respondent’s self reported general health based 
 pseudo R-squared: 0.364
 
 
-*Table 1: top 5 positive/negative variables for Logistic Regressions*
+*Table 1: Top 5 Positive/Negative Variables for Logistic Regressions*
   
 | Feature   |   Coefficient |   Std Error |   P-value | Direction   |
 |:----------|--------------:|------------:|----------:|:------------|
@@ -57,35 +57,41 @@ The results make intuitive sense, most of these variables ask for participants' 
 
 For example:
 
-`QLACTLM2` asks if you are limited in any way due to physical and mental inabilities, we find that answering 'yes' on this question decreases the odds of participant thinking they have good health by 1 - e^(-0.768) = 53.6%
+`QLACTLM2` asks if you are limited in any way due to physical and mental inabilities, we find that answering 'yes' on this question decreases the odds of participant thinking they have good health by 1 - e^(-0.768) = 53.6%.
 
-`EXERANY2` asks if participants engaged in physical activities such as jogging in the past month. Those who answer 'yes' has a e^0.366 - 1 = 44% of odds increase of reporting good health
+`EXERANY2` asks if participants engaged in physical activities such as jogging in the past month. Those who answer 'yes' has a e^0.366 - 1 = 44% of odds increase of reporting good health.
 
 Some interesting observations include:
 
 `EDUCA` which is positively related to subjects education level and `INTERNET` which tracks internet usage in the past month. They all seem to positively affect 
 
-One can say that 
+One can say that higher education and usage of internet allows for access to more health-related information, which may facilitate the adoption of healthier habits. However, there is no way to verify such claim.
 
 ### Decision Tree
 
 
-*Figure 1: Visualisation of decision tree branches*
+*Figure 1: Visualisation of Decision Tree Branches*
 
 ![AUC Curve - Decision Tree](images/dt1.png)
 
+*Figure 2: Confusion Matrix for Decison Tree Model*
+
+![AUC Curve - Decision Tree](images/dt2.png)
 
 
-- **Random Forest Accuracy**: ~X.XX (fill in actual result)
-- **XGBoost Accuracy**: ~X.XX (fill in actual result)
-- **Top Predictive Features**: (e.g., BMI, number of mentally unhealthy days, etc.)
-
-Random Forest outperformed Logistic Regression and identified the most important features contributing to health status classification.
-XGBoost outperformed Logistic Regression and identified the most important features contributing to health status classification.
-## 📁 Repository Structure
+### Random Forest
 
 
+*Figure 3: Confusion Matrix for the Initial Random Forest Model*
 
+![AUC Curve - Random Forest](images/rf1.png)
+
+*Figure 4: Performance Comparison of Different Random Forest Models*
+
+![AUC Curve - Decision Tree](images/rf2.png)
+
+
+*Table 2: 10 Most Important Features in Best Random Forest Model*
 | Rank | Feature         | Importance |
 |------|------------------|------------|
 | 1    | PHYSHLTH         | 0.0937     |
@@ -99,6 +105,19 @@ XGBoost outperformed Logistic Regression and identified the most important featu
 | 9    | JOINPAIN         | 0.0185     |
 | 10   | _VEGESUM         | 0.0168     |
 
+### XGBoost
+
+
+*Figure 5: Performance Comparison of Different XGBoost Models*
+
+![AUC Curve - Random Forest](images/xg1.png)
+
+
+
+
+
+
+*Table 3: 10 Most Important Features in Best XGBoost Model*
 | Rank | Feature         | Importance |
 |------|------------------|------------|
 | 1    | PHYSHLTH         | 0.1271     |
@@ -112,7 +131,9 @@ XGBoost outperformed Logistic Regression and identified the most important featu
 | 9    | EDUCA            | 0.0329     |
 | 10   | DECIDE           | 0.0284     |
 
+## 🚀Final Comparison
 
+*Table 4: Top Models Performance Comparison*
 | Model           | Mean AUC | Std. AUC |
 |-----------------|----------|----------|
 | XGBoost         | 0.901    | 0.003    |
