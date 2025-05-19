@@ -34,14 +34,12 @@ The objective is to predict a respondent’s self reported general health based 
 
 ## 📈 Results Summary
 
-- **Logistic Regression Accuracy**: ~X.XX (fill in actual result)
-- **Random Forest Accuracy**: ~X.XX (fill in actual result)
-- **XGBoost Accuracy**: ~X.XX (fill in actual result)
-- **Top Predictive Features**: (e.g., BMI, number of mentally unhealthy days, etc.)
+### Logistic Regression
+pseudo R-squared: 0.364
 
-Random Forest outperformed Logistic Regression and identified the most important features contributing to health status classification.
-XGBoost outperformed Logistic Regression and identified the most important features contributing to health status classification.
-## 📁 Repository Structure
+
+*Table 1: top 5 positive/negative variables for Logistic Regressions*
+  
 | Feature   |   Coefficient |   Std Error |   P-value | Direction   |
 |:----------|--------------:|------------:|----------:|:------------|
 | _RFHYPE5  |         0.388 |       0.173 |     0.025 | Positive    |
@@ -54,6 +52,38 @@ XGBoost outperformed Logistic Regression and identified the most important featu
 | CHCOCNCR  |        -0.542 |       0.031 |     0     | Negative    |
 | CHCKIDNY  |        -0.508 |       0.047 |     0     | Negative    |
 | DIFFWALK  |        -0.466 |       0.03  |     0     | Negative    |
+
+The results make intuitive sense, most of these variables ask for participants' physical conditons and disease history
+
+For example:
+
+`QLACTLM2` asks if you are limited in any way due to physical and mental inabilities, we find that answering 'yes' on this question decreases the odds of participant thinking they have good health by 1 - e^(-0.768) = 53.6%
+
+`EXERANY2` asks if participants engaged in physical activities such as jogging in the past month. Those who answer 'yes' has a e^0.366 - 1 = 44% of odds increase of reporting good health
+
+Some interesting observations include:
+
+`EDUCA` which is positively related to subjects education level and `INTERNET` which tracks internet usage in the past month. They all seem to positively affect 
+
+One can say that 
+
+### Decision Tree
+
+
+*Figure 1: Visualisation of decision tree branches*
+
+![AUC Curve - Decision Tree](images/dt1.png)
+
+
+
+- **Random Forest Accuracy**: ~X.XX (fill in actual result)
+- **XGBoost Accuracy**: ~X.XX (fill in actual result)
+- **Top Predictive Features**: (e.g., BMI, number of mentally unhealthy days, etc.)
+
+Random Forest outperformed Logistic Regression and identified the most important features contributing to health status classification.
+XGBoost outperformed Logistic Regression and identified the most important features contributing to health status classification.
+## 📁 Repository Structure
+
 
 
 | Rank | Feature         | Importance |
