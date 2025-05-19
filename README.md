@@ -32,7 +32,7 @@ The objective is to predict a respondent’s self reported general health based 
   - graph the AUC-ROC curve
   - list and cross-match feature importance
 
-## 📈 Results Summary
+## 📈 Results and Discussions
 
 ### Logistic Regression
 pseudo R-squared: 0.364
