@@ -162,3 +162,11 @@ Comparing most impactful features between the three models using Table 1-3, we c
 `QLACTLM2` and `DIFFWALK` appeared in all three tables.
 
 `INTERNET`, `EXERANY2`, `EDUCA`, `ARTHSOCL`, and `PHYSHLTH` appears in 2 out of 3 tables.
+
+The contrast in feature importance in the three models is mainly due to difference in approach.
+
+Logistic Regression assigns importance using MLE (Maximum Likelihood Estimator)
+
+Random Forest creates independent trees and takes into account the 'opinion' of different trees.
+
+XGBoost builds trees sequentially, with the newer one trying to correct errors of previous trees.
