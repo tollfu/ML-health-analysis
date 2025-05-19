@@ -189,11 +189,11 @@ Table 4 shows that XGBoost > Random Forest > Decision Tree in terms of performan
 
 This is a rather intuitive result since both XGBoost and Random Forest uses multiple decision trees for modelling.
 
-Taking one stepn further, XGBoost is expected to outperform Random Forest because of its direct on error correction (will be further discussed in data insight)
+Taking one stepn further, XGBoost is expected to outperform Random Forest because of its direct on error correction (will be further discussed in data insight).
 
 ### Data Insights
 
-Comparing most impactful features between the three models using Table 1-3, we can see that:
+Comparing most impactful features between the three models using Table 1-3, **we can see that**:
 
 - **`QLACTLM2`** and **`DIFFWALK`**:
   appears in all three tables
@@ -203,10 +203,31 @@ Comparing most impactful features between the three models using Table 1-3, we c
   appears in 2 out of 3 tables
   
 
-The contrast in feature importance in the three models is mainly due to difference in approach.
+The contrast in feature importance in the three models is mainly due to **difference in approach**:
+- Logistic Regression assigns importance using MLE (Maximum Likelihood Estimator)
+- Random Forest creates independent trees and takes into account the 'opinion' of different trees.
+- XGBoost builds trees sequentially, with the newer one trying to correct errors of previous trees.
 
-Logistic Regression assigns importance using MLE (Maximum Likelihood Estimator)
+Overall, the results appear to convincing.
 
-Random Forest creates independent trees and takes into account the 'opinion' of different trees.
+- **Physical Limitations**:
+  - **`QLACTLM2`** has been discussed in the Logistic Regression section.
+  - **`DIFFWALK`** asks if participants have difficulty walking, this appears to be a determining factor of their self-reported health condition.
+  - **`PHYSHLTH`** asks how many days have participants been physically unwell in the past month, make
+- **`ARTHSOCL`**:
+  - asks how many days has arthritis interfered with normal social activities (e.g. going shopping)
+  - **Why is arthritis considered more important when questions related to high blood pressure, heart disease, different types of cancer is asked?**
+    
+    There is a possibility that people weigh arthritis more because of its direct effect of movement impairment. However, I strongly suspect that the biasness of the question lead to such result. In the codebook, the original question tied to **`ARTHSOCL`** is **`During the past 30 days, to what extent has your arthritis or joint symptoms interfered with your normal social activities, such as going shopping, to the movies, or to religious or social gatherings?`**. This is the only servey question of that year that ties an illness to social activities. Therefore, **`ARTHSOCL`** having a higher feature importance actually reflects how interference of normal social activities affects self-reported health.
+    
+- **`INTERNET`** and **`EDUCA`**:
+  - appears not only in the Logistic Regression 
+  - while none of the model provides causal inference, having the two variables appear in more than one model speaks credibility
+  - would be interesting understanding why they are important. Is the theory of broader health information access valid?
+  
+  
 
-XGBoost builds trees sequentially, with the newer one trying to correct errors of previous trees.
+
+
+
+
