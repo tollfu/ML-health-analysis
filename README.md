@@ -3,7 +3,7 @@
 
 This project explores how machine learning models can predict self-reported health status using the Behavioral Risk Factor Surveillance System (BRFSS) data from the CDC. It showcases a full data science pipeline including data cleaning, feature engineering, model training, and interpretation.
 
-## 📊 Project Overview
+## Project Overview
 
 - **Dataset**: BRFSS 2015 survey data (sampled to 100,000 rows for efficiency). The dataset is not uploaded due to size limit, but can be found at:https://www.cdc.gov/brfss/annual_data/annual_data.htm
 - **Target Variable**: **`_RFHLTH`** – a self-reported rating of general health (1 = Good/Better Health and 2 = Fair/Poor Health)
@@ -15,7 +15,7 @@ This project explores how machine learning models can predict self-reported heal
 
 The objective is to predict a respondent’s self reported general health based on other numeric health and behavior-related variables. Then compare performance of model precision to find the best model.
 
-## 🔍 Key Steps
+## Key Steps
 
 - **Data Cleaning and Manipulation**:
   - removal of irrelevant and less important features
@@ -32,7 +32,7 @@ The objective is to predict a respondent’s self reported general health based 
   - graph the AUC-ROC curve
   - list and cross-match feature importance
 
-## 📈 Results and Discussions
+## Results and Discussions
 
 ## Logistic Regression
 pseudo R-squared: 0.364
